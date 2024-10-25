@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let root = UIHostingController(
             rootView: WebScene(webView: webViewHandler.webView)
-                .environmentObject(webViewHandler.loadingState)
+                .environmentObject(webViewHandler.context)
                 .environmentObject(webViewHandler.command)
         )
         

@@ -2,7 +2,7 @@ import SwiftUI
 import WebKit
 
 struct WebScene: View {
-    @EnvironmentObject private var loadingState: WebContext
+    @EnvironmentObject private var context: WebContext
     let webView: WebView
         
     var body: some View {
@@ -10,7 +10,7 @@ struct WebScene: View {
             VStack {
                 webView
                 MySubView()
-            }.navigationTitle("test \(loadingState.isLoading)")
+            }.navigationTitle("test \(context.isLoading)")
         }
     }
 }
@@ -18,6 +18,6 @@ struct WebScene: View {
 #Preview {
     let webViewHandler = WebViewProvider()
     WebScene(webView: webViewHandler.webView)
-        .environmentObject(webViewHandler.loadingState)
+        .environmentObject(webViewHandler.context)
         .environmentObject(webViewHandler.command)
 }
